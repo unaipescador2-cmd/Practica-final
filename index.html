@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuenta Bancaria</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <main class="tarjeta">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Panel financiero</p>
+          <h1>Mi cuenta</h1>
+        </div>
+        <div class="badge">
+          <span>Cuenta personal</span>
+        </div>
+      </header>
+
+      <section class="resumen">
+        <article class="resumen-card titular-card">
+          <span class="etiqueta">Titular</span>
+          <strong id="titular"></strong>
+        </article>
+
+        <article class="resumen-card saldo-card">
+          <span class="etiqueta">Saldo actual</span>
+          <strong id="saldo"></strong>
+        </article>
+
+        <article class="resumen-card moneda-card">
+          <span class="etiqueta">Moneda</span>
+          <strong id="moneda"></strong>
+        </article>
+      </section>
+
+      <div class="panel-grid">
+        <form id="form-movimiento" class="formulario">
+          <h2>Nuevo movimiento</h2>
+
+          <div class="campo-form">
+            <label for="concepto">Concepto</label>
+            <input id="concepto" name="concepto" type="text" placeholder="Ej. Supermercado" />
+          </div>
+
+          <div class="campo-form">
+            <label for="importe">Importe</label>
+            <input id="importe" name="importe" type="number" step="0.01" placeholder="0.00" />
+          </div>
+
+          <div class="campo-form">
+            <label for="categoria-nueva">Categoría</label>
+            <select id="categoria-nueva" name="categoria-nueva">
+              <option value="Gasto">Gasto</option>
+              <option value="Ingreso">Ingreso</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-agregar">Añadir movimiento</button>
+        </form>
+
+        <section class="estadisticas">
+          <h2>Estadísticas</h2>
+
+          <div class="stat-row">
+            <span>Total gastado</span>
+            <strong id="total-gastado"></strong>
+          </div>
+
+          <div class="stat-row">
+            <span>Categoría con más gasto</span>
+            <strong id="categoria-mas-gastada"></strong>
+          </div>
+
+          <ul id="lista-gastos-categoria"></ul>
+        </section>
+      </div>
+
+      <section class="movimientos">
+        <div class="cabecera-movimientos">
+          <h2>Últimos movimientos</h2>
+          <div class="filtro-wrap">
+            <label for="filtro-categoria" class="filtro-label">Categoría</label>
+            <select id="filtro-categoria">
+              <option value="Todos">Todos</option>
+              <option value="Ingreso">Ingreso</option>
+              <option value="Gasto">Gasto</option>
+            </select>
+          </div>
+        </div>
+
+        <table class="tabla-movimientos">
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Categoría</th>
+              <th>Fecha</th>
+              <th>Importe</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-movimientos-body"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
